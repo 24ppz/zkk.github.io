@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模型选择器与结果展示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .model-selector, .input-area, .result-area {
+            margin-bottom: 20px;
+        }
+        .model-selector select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-area textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .result-area pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            white-space: pre-wrap; /* 保持空白和换行 */
+            word-wrap: break-word; /* 处理长单词换行 */
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>选择模型并输入内容</h1>
+        <div class="model-selector">
+            <label for="model-select">选择模型:</label>
+            <select id="model-select">
+                <option value="modelA">模型A</option>
+                <option value="modelB">模型B</option>
+                <!-- 可以添加更多模型选项 -->
+            </select>
+        </div>
+        <div class="input-area">
+            <label for="user-input">输入内容:</label>
+            <textarea id="user-input" placeholder="在这里输入你的内容..."></textarea>
+        </div>
+        <button class="button" onclick="sendRequest()">发送请求</button>
+        <div class="result-area">
+            <label for="result">模型结果:</label>
+            <pre id="result"></pre>
+        </div>
+    </div>
+
+    <script>
+        function sendRequest() {
+            // 获取用户选择的模型和输入的内容
+            const model = document.getElementById('model-select').value;
+            const input = document.getElementById('user-input').value;
+
+            // 这里应该发送一个请求到后端服务器，但由于示例原因，我们直接模拟一个响应
+            // 假设后端返回了处理后的结果
+            const simulatedResponse = `模型 ${model} 处理后的结果: ${input.toUpperCase()}`; // 这里只是简单地将输入转换为大写作为模拟结果
+
+            // 显示结果
+            document.getElementById('result').textContent = simulatedResponse;
+        }
+    </script>
+</body>
+</html>
